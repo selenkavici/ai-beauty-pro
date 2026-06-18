@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Beauty Pro">
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fb7185"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="20" y1="15" x2="47" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff7fb"/>
+      <stop offset="1" stop-color="#ffe4f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)"/>
+  <path d="M31.7 14.5c1.1-2.9 5.2-2.9 6.3 0l1.5 4.1c.4 1.1 1.2 1.9 2.3 2.3l4.1 1.5c2.9 1.1 2.9 5.2 0 6.3l-4.1 1.5c-1.1.4-1.9 1.2-2.3 2.3L38 36.6c-1.1 2.9-5.2 2.9-6.3 0l-1.5-4.1c-.4-1.1-1.2-1.9-2.3-2.3l-4.1-1.5c-2.9-1.1-2.9-5.2 0-6.3l4.1-1.5c1.1-.4 1.9-1.2 2.3-2.3l1.5-4.1Z" fill="url(#shine)"/>
+  <path d="M18 42c4.7-4.2 9.5-6.3 14.4-6.3S42 37.8 46.8 42c-2.5 5-7.7 8.5-14.4 8.5S20.5 47 18 42Z" fill="#fff7fb" opacity=".92"/>
+  <circle cx="25" cy="25" r="2.2" fill="#be185d"/>
+  <circle cx="45" cy="41" r="2.4" fill="#fdf2f8"/>
+  <path d="M15 18l2.1 4.4L22 24l-4.9 1.6L15 30l-2.1-4.4L8 24l4.9-1.6L15 18Z" fill="#fff7fb" opacity=".9"/>
+</svg>
