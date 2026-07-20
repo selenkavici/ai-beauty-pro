@@ -19,13 +19,13 @@ export function Hero({ onNavigate }: HeroProps) {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-4 py-2 text-sm font-bold text-rose-700 shadow-sm">
             <Sparkles size={16} aria-hidden="true" />
-            Fotoğraf Tabanlı Demo Güzellik Öneri Sistemi
+            MediaPipe Destekli Güzellik Analizi
           </span>
           <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
             Sana Uygun Güzellik Stilini Keşfet
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-            Fotoğrafını yükle, tarayıcı tabanlı demo analiz sonucunu gör ve sana özel saç modeli, saç rengi ve
+            Fotoğrafını yükle, tarayıcıda çalışan MediaPipe analiz sonucunu gör ve sana özel saç modeli, saç rengi ve
             güzellik önerilerini keşfet.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -76,15 +76,7 @@ export function Hero({ onNavigate }: HeroProps) {
                   );
                 })}
               </div>
-              <div className="mt-5 rounded-2xl bg-slate-950 p-4 text-white">
-                <div className="mb-3 flex items-center justify-between text-sm">
-                  <span>Örnek uyumluluk skoru</span>
-                  <span className="font-bold text-rose-200">%92</span>
-                </div>
-                <div className="h-2 overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full w-[92%] rounded-full bg-gradient-to-r from-rose-300 to-violet-300" />
-                </div>
-              </div>
+              <div className="mt-5 rounded-2xl bg-slate-950 p-4 font-bold text-white">MediaPipe tabanlı yüz landmark analizi</div>
             </div>
           </div>
         </div>

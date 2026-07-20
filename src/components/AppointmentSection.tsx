@@ -164,9 +164,9 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
           <p className="font-bold uppercase text-rose-700">Demo Randevu</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Randevu akışını deneyimle</h2>
+          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Demo randevu oluştur</h2>
           <p className="mt-3 leading-7 text-slate-700">
-            Bu bölüm proje kapsamında hazırlanmış bir demo akıştır. Bilgiler yalnızca kendi tarayıcında saklanır ve herhangi bir işletmeye veya sunucuya gönderilmez.
+            Bilgiler yalnızca tarayıcınızda saklanır ve herhangi bir işletmeye gönderilmez.
           </p>
         </div>
 

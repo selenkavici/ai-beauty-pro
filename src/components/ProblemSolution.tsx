@@ -22,8 +22,8 @@ export function ProblemSolution() {
             </div>
             <h2 className="text-3xl font-black text-slate-950">Çözüm</h2>
             <p className="mt-4 leading-8 text-slate-700">
-              AI Beauty Pro, kullanıcının fotoğrafından yüz şekli, cilt tonu ve stil tercihlerini
-              analiz ediyormuş gibi çalışan demo AI akışıyla kişiye özel öneriler sunar.
+              AI Beauty Pro, önceden eğitilmiş MediaPipe Face Landmarker ile yüz noktalarını tarayıcıda algılar;
+              geometrik yüz şekli ve bölgesel cilt alt tonu tahminlerinden açıklanabilir öneriler üretir.
             </p>
           </div>
         </div>

@@ -17,7 +17,7 @@ const quickLinks: { label: string; id: SectionId }[] = [
 
 const features = [
   'Fotoğraf Yükleme',
-  'Görsel Tabanlı Demo Analiz',
+  'MediaPipe Face Landmarker',
   'Kişisel Öneriler',
   'Demo Chat Asistanı',
   'Demo Randevu Akışı',
@@ -35,11 +35,11 @@ export function Footer({ onNavigate }: FooterProps) {
               </span>
               <div>
                 <p className="text-xl font-black">AI Beauty Pro</p>
-                <p className="text-sm font-semibold text-rose-200">Fotoğraf Tabanlı Demo Güzellik Öneri Sistemi</p>
+                <p className="text-sm font-semibold text-rose-200">Tarayıcı İçi Landmark Analizi</p>
               </div>
             </div>
             <p className="mt-4 max-w-sm leading-7 text-slate-300">
-              Fotoğraf tabanlı demo analiz, kişiselleştirilmiş öneriler, chat ve randevu akışıyla hazırlanmış frontend final projesi.
+              Fotoğrafı sunucuya göndermeden MediaPipe landmark analizi yapan frontend final projesi.
             </p>
           </div>
 
@@ -94,16 +94,15 @@ export function Footer({ onNavigate }: FooterProps) {
               </a>
             </div>
             <div className="mt-5 space-y-2 text-sm font-semibold text-slate-300">
-              <p>Geliştirici: Selen Kavici</p>
+              <p>Selen Kavici tarafından geliştirilmiştir.</p>
               <p>Bilgisayar Programcılığı Final Projesi</p>
-              <p>Ders: Programlamada Yeni Eğilimler</p>
             </div>
           </div>
         </div>
 
         <div className="mt-9 border-t border-white/10 pt-6">
           <p className="text-sm font-semibold text-slate-400">
-            © 2026 AI Beauty Pro. Selen Kavici tarafından geliştirilmiştir.
+            © 2026 AI Beauty Pro
           </p>
         </div>
       </div>

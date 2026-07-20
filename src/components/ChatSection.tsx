@@ -24,10 +24,10 @@ const includesAny = (message: string, keywords: string[]) => keywords.some((keyw
 
 const analysisPrefix = (analysis: AnalysisResult | null) => {
   if (!analysis) {
-    return 'Daha net öneri verebilmem için önce Demo Analiz bölümünden fotoğraf analizi yapmanı öneririm. ';
+    return 'Daha net öneri verebilmem için önce MediaPipe Analizi bölümünden fotoğraf analizi yapmanı öneririm. ';
   }
 
-  return `Demo analiz sonucunda yüz şeklin ${analysis.faceShape.toLocaleLowerCase('tr-TR')}, cilt alt tonun ${analysis.undertone.toLocaleLowerCase('tr-TR')}, saç yoğunluğun ${analysis.hairDensity.toLocaleLowerCase('tr-TR')} ve stil enerjin ${analysis.styleEnergy.toLocaleLowerCase('tr-TR')} görünüyor. `;
+  return `MediaPipe landmark analizinde yüz şeklin ${analysis.faceShape.toLocaleLowerCase('tr-TR')} sınıfına yakın, cilt alt tonun ise tahmini olarak ${analysis.undertone.toLocaleLowerCase('tr-TR')} görünüyor. Bu sonuçlar ışık ve pozdan etkilenebilir. `;
 };
 
 const hairColorAdvice = (analysis: AnalysisResult) => {

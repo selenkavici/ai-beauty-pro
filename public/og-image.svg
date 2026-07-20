@@ -25,7 +25,7 @@
   <path d="M178 151c4-11 20-11 24 0l5 14c2 4 5 7 9 9l14 5c11 4 11 20 0 24l-14 5c-4 2-7 5-9 9l-5 14c-4 11-20 11-24 0l-5-14c-2-4-5-7-9-9l-14-5c-11-4-11-20 0-24l14-5c4-2 7-5 9-9l5-14Z" fill="#fff7fb"/>
   <text x="138" y="292" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800" fill="#172033">AI Beauty Pro</text>
   <text x="142" y="352" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#be185d">Kişisel Güzellik Öneri Sistemi</text>
-  <text x="142" y="414" font-family="Inter, Arial, sans-serif" font-size="25" fill="#475569">Fotoğraf tabanlı demo analiz • Kişisel öneriler • AI chat • Randevu akışı</text>
+  <text x="142" y="414" font-family="Inter, Arial, sans-serif" font-size="25" fill="#475569">MediaPipe landmark analizi • Tarayıcı içi işleme • Gizlilik odaklı</text>
   <rect x="142" y="458" width="454" height="54" rx="27" fill="url(#accent)"/>
   <text x="174" y="493" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">React • TypeScript • Tailwind CSS</text>
   <g transform="translate(760 150)">
