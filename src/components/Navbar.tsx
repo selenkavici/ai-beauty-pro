@@ -25,7 +25,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/70 bg-white/82 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-white/70 bg-white/[0.82] backdrop-blur-xl">
       <nav className="container-app flex h-16 items-center justify-between" aria-label="Ana navigasyon">
         <button
           type="button"
