@@ -17,10 +17,10 @@ const quickLinks: { label: string; id: SectionId }[] = [
 
 const features = [
   'Fotoğraf Yükleme',
-  'Görsel Tabanlı Demo Analiz',
+  'MediaPipe Face Landmarker',
   'Kişisel Öneriler',
-  'AI Chat Asistanı',
-  'Randevu Sistemi',
+  'Chat Asistanı',
+  'Yerel Randevu Akışı',
 ];
 
 export function Footer({ onNavigate }: FooterProps) {
@@ -35,12 +35,11 @@ export function Footer({ onNavigate }: FooterProps) {
               </span>
               <div>
                 <p className="text-xl font-black">AI Beauty Pro</p>
-                <p className="text-sm font-semibold text-rose-200">AI Destekli Kişisel Güzellik Öneri Sistemi</p>
+                <p className="text-sm font-semibold text-rose-200">Tarayıcı İçi Landmark Analizi</p>
               </div>
             </div>
             <p className="mt-4 max-w-sm leading-7 text-slate-300">
-              Fotoğraf analizi, kişiselleştirilmiş öneriler, AI chat ve randevu akışıyla güzellik
-              kararlarını daha bilinçli hale getiren final projesi.
+              Fotoğrafı sunucuya göndermeden MediaPipe landmark analizi ve kişiselleştirilmiş güzellik önerileri sunan web uygulaması.
             </p>
           </div>
 
@@ -85,27 +84,23 @@ export function Footer({ onNavigate }: FooterProps) {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/selenkavici"
+                href="https://github.com/selenkavici/ai-beauty-pro"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2 font-bold text-slate-100 transition hover:bg-white/10"
               >
                 <Github size={18} aria-hidden="true" />
-                GitHub
+                GitHub Projesi
               </a>
             </div>
             <div className="mt-5 space-y-2 text-sm font-semibold text-slate-300">
-              <p>Öğrenci: Selen Kavici</p>
-              <p>Numara: 24010501052</p>
-              <p>Ders: Programlamada Yeni Eğilimler</p>
+              <p>Selen Kavici tarafından geliştirilmiştir.</p>
             </div>
           </div>
         </div>
 
         <div className="mt-9 border-t border-white/10 pt-6">
-          <p className="text-sm font-semibold text-slate-400">
-            © 2026 AI Beauty Pro. Final projesi kapsamında geliştirilmiştir.
-          </p>
+          <p className="text-sm font-semibold text-slate-400">© 2026 AI Beauty Pro</p>
         </div>
       </div>
     </footer>

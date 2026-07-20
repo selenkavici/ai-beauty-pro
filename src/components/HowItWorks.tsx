@@ -4,17 +4,17 @@ const steps = [
   {
     icon: ImageUp,
     title: 'Fotoğraf Yükle',
-    text: 'JPG, PNG veya WEBP formatında fotoğrafını güvenli demo alana ekle.',
+    text: 'JPG, PNG veya WEBP fotoğrafını yalnızca tarayıcıda işlenen alana ekle.',
   },
   {
     icon: ScanFace,
     title: 'AI Yüz Analizi',
-    text: 'Yüz şekli, cilt alt tonu, saç yoğunluğu ve stil enerjisi mock analizle üretilir.',
+    text: 'MediaPipe yüzü algılar; yüz şekli landmark oranlarından, alt ton güvenli cilt bölgelerinden tahmin edilir.',
   },
   {
     icon: CalendarCheck,
     title: 'Kişisel Önerileri Gör',
-    text: 'Saç modeli, saç rengi, makyaj ve stil önerilerini uyum puanlarıyla incele.',
+    text: 'Tahmini yüz şekli ve alt tona göre açıklanabilir saç ve makyaj önerilerini incele.',
   },
   {
     icon: MessageCircle,

@@ -59,6 +59,13 @@ const emptyForm = (selectedRecommendation = ''): AppointmentForm => ({
   selectedRecommendation,
 });
 
+const formatLocalDate = (date = new Date()) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 const isPastDate = (date: string) => {
   if (!date) return false;
   const selected = new Date(`${date}T00:00:00`);
@@ -67,11 +74,7 @@ const isPastDate = (date: string) => {
   return selected < today;
 };
 
-const isToday = (date: string) => {
-  if (!date) return false;
-  const today = new Date().toISOString().slice(0, 10);
-  return date === today;
-};
+const isToday = (date: string) => Boolean(date) && date === formatLocalDate();
 
 const isPastTimeToday = (date: string, time: string) => {
   if (!isToday(date) || !time) return false;
@@ -140,7 +143,7 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
       setAppointments((current) => [appointment, ...current]);
       setSuccess(appointment);
       setLoading(false);
-      notify('Randevu başarıyla oluşturuldu.', 'success');
+      notify('Yerel randevu kaydı oluşturuldu.', 'success');
     }, 700);
   };
 
@@ -153,15 +156,18 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
 
   const removeAppointment = (id: string) => {
     setAppointments((current) => current.filter((appointment) => appointment.id !== id));
-    notify('Randevu silindi.', 'info');
+    notify('Randevu kaydı silindi.', 'info');
   };
 
   return (
     <section id="appointment" className="section-pad">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">Randevu</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Danışmanlık randevusu oluştur</h2>
+          <p className="font-bold uppercase text-rose-700">Yerel Randevu Formu</p>
+          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Randevu kaydı oluştur</h2>
+          <p className="mt-3 leading-7 text-slate-700">
+            Bilgiler yalnızca tarayıcınızda saklanır ve herhangi bir işletmeye gönderilmez.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -190,7 +196,7 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
                 <input
                   type="date"
                   value={form.date}
-                  min={new Date().toISOString().slice(0, 10)}
+                  min={formatLocalDate()}
                   onChange={(e) => update('date', e.target.value)}
                   className="input-field"
                 />
@@ -225,18 +231,18 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
             <button
               type="submit"
               disabled={loading}
-              aria-label="Randevu formunu gönder"
+              aria-label="Yerel randevu kaydı oluştur"
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
             >
               {loading ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : <CalendarCheck size={18} aria-hidden="true" />}
-              Randevu Oluştur
+              Randevu Kaydı Oluştur
             </button>
           </form>
 
           <div className="rounded-2xl border border-violet-100 bg-white p-6 shadow-premium">
-            <h3 className="text-2xl font-black text-slate-950">Son Oluşturulan Randevular</h3>
+            <h3 className="text-2xl font-black text-slate-950">Tarayıcıda Kayıtlı Randevular</h3>
             <div className="mt-5 space-y-3">
-              {appointments.length === 0 && <p className="rounded-xl bg-slate-50 p-4 text-slate-700">Henüz randevu oluşturulmadı.</p>}
+              {appointments.length === 0 && <p className="rounded-xl bg-slate-50 p-4 text-slate-700">Henüz yerel randevu kaydı oluşturulmadı.</p>}
               {appointments.map((appointment) => (
                 <article key={appointment.id} className="rounded-xl border border-rose-100 bg-rose-50/50 p-4">
                   <div className="flex items-start justify-between gap-3">
@@ -253,7 +259,7 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
                     <button
                       type="button"
                       onClick={() => removeAppointment(appointment.id)}
-                      aria-label={`${appointment.name} randevusunu sil`}
+                      aria-label={`${appointment.name} randevu kaydını sil`}
                       className="rounded-full bg-white p-2 text-rose-700 transition hover:bg-rose-100"
                     >
                       <Trash2 size={18} aria-hidden="true" />
@@ -266,9 +272,12 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
         </div>
       </div>
 
-      <Modal title="Randevu başarıyla oluşturuldu" isOpen={Boolean(success)} onClose={clearAfterSuccess}>
+      <Modal title="Randevu kaydı oluşturuldu" isOpen={Boolean(success)} onClose={clearAfterSuccess}>
         {success && (
           <div className="space-y-3 text-slate-700">
+            <p className="rounded-xl bg-violet-50 p-3 text-sm font-semibold text-violet-800">
+              Bu kayıt yalnızca kendi tarayıcında saklandı; gerçek bir randevu talebi gönderilmedi.
+            </p>
             <p>
               <strong>Ad Soyad:</strong> {success.name}
             </p>
@@ -287,7 +296,7 @@ export function AppointmentSection({ selectedRecommendation, setSelectedRecommen
             <button
               type="button"
               onClick={clearAfterSuccess}
-              aria-label="Randevu başarı modalını kapat ve formu temizle"
+              aria-label="Randevu modalını kapat ve formu temizle"
               className="mt-3 rounded-full premium-gradient px-6 py-3 font-bold text-white"
             >
               Tamam

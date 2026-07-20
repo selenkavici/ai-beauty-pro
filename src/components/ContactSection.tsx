@@ -44,22 +44,22 @@ export function ContactSection({ notify }: ContactSectionProps) {
     }
     setSent(true);
     setForm(emptyContact);
-    notify('Mesajınız başarıyla alındı.', 'success');
+    notify('İletişim formu yerel olarak tamamlandı.', 'success');
   };
 
   return (
     <section id="contact" className="section-pad bg-white/70">
       <div className="container-app grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
-          <p className="font-bold uppercase text-rose-700">İletişim</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Proje ve danışmanlık için bize ulaş</h2>
+          <p className="font-bold uppercase text-rose-700">Yerel İletişim Formu</p>
+          <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">İletişim formu deneyimi</h2>
           <p className="mt-4 leading-8 text-slate-700">
-            Formu doldurduğunda gerçek mail gönderimi yapılmaz; final projesi için başarılı gönderim deneyimi gösterilir.
+            Bu form proje kapsamında validasyon ve başarılı gönderim deneyimini göstermek için hazırlanmıştır. Girilen bilgiler herhangi bir sunucuya veya e-posta adresine gönderilmez.
           </p>
           {sent && (
             <div className="mt-5 flex items-center gap-3 rounded-2xl bg-emerald-50 p-4 font-bold text-emerald-800">
               <MailCheck size={22} aria-hidden="true" />
-              Mesajınız başarıyla alındı.
+              İletişim formu yerel olarak tamamlandı; herhangi bir mesaj gönderilmedi.
             </div>
           )}
         </div>
@@ -80,11 +80,11 @@ export function ContactSection({ notify }: ContactSectionProps) {
           </div>
           <button
             type="submit"
-            aria-label="İletişim mesajını gönder"
+            aria-label="Yerel iletişim formunu tamamla"
             className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg"
           >
             <Send size={18} aria-hidden="true" />
-            Gönder
+            Formu Tamamla
           </button>
         </form>
       </div>

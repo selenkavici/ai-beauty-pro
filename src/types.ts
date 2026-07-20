@@ -11,10 +11,17 @@ export type SectionId =
 export type AnalysisResult = {
   faceShape: 'Oval' | 'Yuvarlak' | 'Kalp' | 'Kare';
   undertone: 'Sıcak' | 'Soğuk' | 'Nötr';
-  hairDensity: 'İnce' | 'Normal' | 'Yoğun';
-  styleEnergy: 'Doğal' | 'Modern' | 'Cesur' | 'Klasik';
-  score: number;
+  lightingQuality: 'İyi' | 'Çok karanlık' | 'Çok parlak';
+  faceDetected: true;
   comment: string;
+  faceMeasurements: {
+    faceHeight: number;
+    cheekboneWidth: number;
+    foreheadWidth: number;
+    jawWidth: number;
+    jawTaperRatio: number;
+    heightWidthRatio: number;
+  };
   imageMetrics: {
     width: number;
     height: number;
@@ -30,7 +37,6 @@ export type Recommendation = {
   title: string;
   category: string;
   description: string;
-  match: number;
   details: string;
   suitableFor: string;
   maintenance: string;

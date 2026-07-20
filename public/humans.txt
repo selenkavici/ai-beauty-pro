@@ -1,0 +1,3 @@
+AI Beauty Pro
+Developer: Selen Kavici
+Project: Portfolio web application
