@@ -135,10 +135,13 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
     <section id="analysis" className="section-pad bg-white/70">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">AI Analiz</p>
+          <p className="font-bold uppercase text-rose-700">Demo Analiz</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Fotoğrafını yükle, demo analiz sonucunu gör</h2>
           <p className="mt-3 leading-7 text-slate-700">
-            Bu bölüm final projesi için dış API anahtarı gerektirmeden tarayıcıda görsel tabanlı demo analiz üretir.
+            Bu bölüm dış API veya eğitilmiş bir yapay zekâ modeli kullanmadan, tarayıcıda görüntü ölçümlerinden demo sonuç üretir. Sonuçlar bilimsel ya da profesyonel değerlendirme değildir.
+          </p>
+          <p className="mt-2 rounded-xl bg-emerald-50 p-3 text-sm font-semibold text-emerald-800">
+            Gizlilik: Yüklediğin fotoğraf yalnızca kendi tarayıcında işlenir; herhangi bir sunucuya yüklenmez veya kaydedilmez.
           </p>
         </div>
 
@@ -177,11 +180,11 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
                 type="button"
                 onClick={startAnalysis}
                 disabled={loading}
-                aria-label="Fotoğraf analizini başlat"
+                aria-label="Fotoğraf demo analizini başlat"
                 className="inline-flex items-center justify-center gap-2 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {loading ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : <Sparkles size={18} aria-hidden="true" />}
-                Analizi Başlat
+                Demo Analizi Başlat
               </button>
               <button
                 type="button"
@@ -199,19 +202,19 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
             {loading && (
               <div className="flex min-h-80 flex-col items-center justify-center text-center">
                 <Loader2 className="mb-4 animate-spin text-rose-300" size={46} aria-hidden="true" />
-                <p className="text-xl font-black">AI yüz analizi hazırlanıyor</p>
-                <p className="mt-2 text-slate-300">Yüz oranları, ton uyumu ve stil enerjisi değerlendiriliyor.</p>
+                <p className="text-xl font-black">Demo analiz hazırlanıyor</p>
+                <p className="mt-2 text-slate-300">Görüntü oranları, ton uyumu ve stil değerleri hesaplanıyor.</p>
               </div>
             )}
             {!loading && !result && (
-              <div className="flex min-h-80 flex-col justify-center rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex min-h-80 flex-col justify-center rounded-2xl border border-white/10 bg-white/[0.05] p-6">
                 <p className="text-xl font-black">
-                  {faceStatus === 'invalid' ? 'Analiz yapılamadı' : 'Analiz sonucu burada görünecek'}
+                  {faceStatus === 'invalid' ? 'Analiz yapılamadı' : 'Demo analiz sonucu burada görünecek'}
                 </p>
                 <p className="mt-3 leading-7 text-slate-300">
                   {faceStatus === 'invalid'
                     ? 'Yüzünüzün net göründüğü bir selfie yükleyiniz.'
-                    : 'Fotoğraf yüklendikten sonra analiz butonu aktif akışı başlatır. Sonuçlar sayfa yenilenmeden gösterilir.'}
+                    : 'Fotoğraf yüklendikten sonra analiz butonu demo akışını başlatır. Sonuçlar sayfa yenilenmeden gösterilir.'}
                 </p>
               </div>
             )}
@@ -219,11 +222,13 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
               <div>
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-bold uppercase text-rose-200">AI Analiz Sonucu</p>
+                    <p className="text-sm font-bold uppercase text-rose-200">Demo Analiz Sonucu</p>
                     <h3 className="mt-1 text-2xl font-black">Kişisel analiz tamamlandı</h3>
-                    <p className="mt-1 text-xs font-semibold text-slate-300">Görsel tabanlı demo analiz</p>
+                    <p className="mt-1 text-xs font-semibold text-slate-300">Görsel ölçümlerden üretilen demo sonuç</p>
                   </div>
-                  <span className="rounded-full bg-white px-4 py-2 text-sm font-black text-rose-700">%{result.score}</span>
+                  <span className="rounded-full bg-white px-4 py-2 text-sm font-black text-rose-700" aria-label={`Örnek uyumluluk skoru yüzde ${result.score}`}>
+                    %{result.score} uyum
+                  </span>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {[
@@ -232,14 +237,14 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
                     ['Saç yoğunluğu', result.hairDensity],
                     ['Stil enerjisi', result.styleEnergy],
                   ].map(([label, value]) => (
-                    <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-4">
+                    <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.08] p-4">
                       <p className="text-sm text-slate-300">{label}</p>
                       <p className="mt-1 text-xl font-black">{value}</p>
                     </div>
                   ))}
                 </div>
-                <p className="mt-5 rounded-2xl bg-white/8 p-4 leading-7 text-slate-100">{result.comment}</p>
-                <div className="mt-3 grid gap-2 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs font-semibold text-slate-300 sm:grid-cols-3">
+                <p className="mt-5 rounded-2xl bg-white/[0.08] p-4 leading-7 text-slate-100">{result.comment}</p>
+                <div className="mt-3 grid gap-2 rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-xs font-semibold text-slate-300 sm:grid-cols-3">
                   <span>Parlaklık: {result.imageMetrics.brightness}</span>
                   <span>Kontrast: {result.imageMetrics.contrast}</span>
                   <span>Doygunluk: %{result.imageMetrics.saturation}</span>
@@ -247,7 +252,7 @@ export function AnalysisSection({ result, setResult, onNavigate, notify }: Analy
                 <button
                   type="button"
                   onClick={() => onNavigate('recommendations')}
-                  aria-label="Kişiselleştirilmiş öneriler bölümüne git"
+                  aria-label="Kişiselleştirilmiş demo öneriler bölümüne git"
                   className="mt-5 w-full rounded-full bg-white px-6 py-3 font-black text-rose-700 transition hover:bg-rose-50"
                 >
                   Önerileri Gör
