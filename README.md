@@ -32,7 +32,7 @@ Fotoğraf herhangi bir uygulama sunucusuna veya analiz API'sine gönderilmez ve 
 - React 19, TypeScript, Vite, Tailwind CSS
 - `@mediapipe/tasks-vision`
 - HTML Canvas API
-- localStorage tabanlı demo randevu saklama
+- localStorage tabanlı yerel randevu saklama
 
 ## Kurulum ve build
 
@@ -49,4 +49,4 @@ npm run build
 - Aynı görsel farklı dosya adıyla aynı sonucu verir.
 - Fotoğraf harici bir sunucuya yüklenmez.
 - GPU kullanılamadığında CPU fallback denenir; model yükleme hatası anlaşılır biçimde gösterilir.
-- Randevu ve iletişim akışları demo olduklarını açıkça belirtir.
+- Randevu ve iletişim akışları verilerin yalnızca tarayıcıda kaldığını açıkça belirtir.

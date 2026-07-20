@@ -24,7 +24,7 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
     <section id="recommendations" className="section-pad">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">Kişiselleştirilmiş Demo Öneriler</p>
+          <p className="font-bold uppercase text-rose-700">Kişiselleştirilmiş Öneriler</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Analize göre güzellik planı</h2>
           <p className="mt-3 leading-7 text-slate-700">Öneriler landmark tabanlı yüz şekli ve tahmini cilt alt tonuna göre hazırlanır; kesin veya profesyonel değerlendirme değildir.</p>
         </div>
@@ -37,7 +37,7 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
               type="button"
               onClick={() => onNavigate('analysis')}
               className="mt-5 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg"
-              aria-label="Demo analiz bölümüne git"
+              aria-label="Analiz bölümüne git"
             >
               Analize Git
             </button>
@@ -90,11 +90,11 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
               <button
                 type="button"
                 onClick={() => book(selected)}
-                aria-label={`${selected.title} önerisi için demo randevu oluştur`}
+                aria-label={`${selected.title} önerisi için yerel randevu kaydı oluştur`}
                 className="inline-flex items-center justify-center gap-2 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg"
               >
                 <CalendarDays size={18} aria-hidden="true" />
-                Demo Randevu Oluştur
+                Randevu Kaydı Oluştur
               </button>
               <button
                 type="button"

@@ -19,8 +19,8 @@ const features = [
   'Fotoğraf Yükleme',
   'MediaPipe Face Landmarker',
   'Kişisel Öneriler',
-  'Demo Chat Asistanı',
-  'Demo Randevu Akışı',
+  'Chat Asistanı',
+  'Yerel Randevu Akışı',
 ];
 
 export function Footer({ onNavigate }: FooterProps) {

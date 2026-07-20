@@ -119,10 +119,10 @@ const createReply = (message: string, analysis: AnalysisResult | null) => {
   }
 
   if (includesAny(lower, ['randevu', 'kuaför', 'kuafor', 'danışmanlık', 'danismanlik', 'görüşme', 'gorusme', 'paket'])) {
-    return 'Demo randevu akışını denemek için randevu bölümündeki formu doldurabilirsin. Bilgiler yalnızca kendi tarayıcında saklanır ve gerçek bir işletmeye gönderilmez.';
+    return 'Yerel randevu akışını denemek için randevu bölümündeki formu doldurabilirsin. Bilgiler yalnızca kendi tarayıcında saklanır ve gerçek bir işletmeye gönderilmez.';
   }
 
-  return `${analysisPrefix(analysis)}Güzellik kararlarında yüz şekli, cilt alt tonu, günlük bakım süresi ve kişisel stil birlikte değerlendirilmelidir. Saç rengi, saç modeli, cilt tonu veya demo randevu konularından biriyle başlayabiliriz.`;
+  return `${analysisPrefix(analysis)}Güzellik kararlarında yüz şekli, cilt alt tonu, günlük bakım süresi ve kişisel stil birlikte değerlendirilmelidir. Saç rengi, saç modeli, cilt tonu veya yerel randevu konularından biriyle başlayabiliriz.`;
 };
 
 export function ChatSection({ analysis }: ChatSectionProps) {
@@ -171,10 +171,10 @@ export function ChatSection({ analysis }: ChatSectionProps) {
     <section id="chat" className="section-pad bg-white/70">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">Demo Chat Asistanı</p>
+          <p className="font-bold uppercase text-rose-700">Chat Asistanı</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Güzellik asistanına sor</h2>
           <p className="mt-3 leading-7 text-slate-700">
-            Yanıtlar gerçek bir yapay zekâ servisi yerine proje kapsamında hazırlanan anahtar kelime tabanlı demo akışından üretilir.
+            Yanıtlar harici bir yapay zekâ servisi yerine proje kapsamında hazırlanan anahtar kelime tabanlı yerel akıştan üretilir.
           </p>
         </div>
         <div className="rounded-2xl border border-rose-100 bg-white p-4 shadow-premium sm:p-6">
@@ -197,7 +197,7 @@ export function ChatSection({ analysis }: ChatSectionProps) {
                   )}
                 </div>
               ))}
-              {typing && <p className="text-sm font-semibold text-violet-700">Demo asistan yanıt hazırlıyor...</p>}
+              {typing && <p className="text-sm font-semibold text-violet-700">Asistan yanıt hazırlıyor...</p>}
               <div ref={messagesEndRef} />
             </div>
           </div>

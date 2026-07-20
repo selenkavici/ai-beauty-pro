@@ -5,7 +5,7 @@ type HeroProps = {
   onNavigate: (id: SectionId) => void;
 };
 
-const demoItems = [
+const featureItems = [
   { icon: ScanFace, label: 'Yüz Analizi', value: 'Oval form' },
   { icon: Camera, label: 'Saç Modeli Önerisi', value: 'Katlı kesim' },
   { icon: Palette, label: 'Cilt Tonu Uyumu', value: 'Nötr alt ton' },
@@ -32,7 +32,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <button
               type="button"
               onClick={() => onNavigate('analysis')}
-              aria-label="Demo analiz bölümüne git"
+              aria-label="Analiz bölümüne git"
               className="rounded-full premium-gradient px-7 py-4 font-bold text-white shadow-premium transition hover:scale-[1.02]"
             >
               Analize Başla
@@ -53,7 +53,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="rounded-2xl bg-gradient-to-br from-rose-100 via-white to-violet-100 p-5">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold uppercase text-rose-700">Demo Paneli</p>
+                  <p className="text-sm font-bold uppercase text-rose-700">Analiz Paneli</p>
                   <h2 className="mt-1 text-2xl font-black text-slate-950">Beauty AI Studio</h2>
                 </div>
                 <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
@@ -61,7 +61,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 </span>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
-                {demoItems.map((item, index) => {
+                {featureItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <div
