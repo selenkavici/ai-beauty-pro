@@ -24,19 +24,22 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
     <section id="recommendations" className="section-pad">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">Kişiselleştirilmiş Öneriler</p>
+          <p className="font-bold uppercase text-rose-700">Kişiselleştirilmiş Demo Öneriler</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Analize göre güzellik planı</h2>
+          <p className="mt-3 leading-7 text-slate-700">
+            Yüzde değerleri tıbbi veya bilimsel doğruluk oranı değil, demo öneriler arasındaki örnek uyumluluk skorudur.
+          </p>
         </div>
 
         {!analysis ? (
           <div className="rounded-2xl border border-rose-100 bg-white p-8 text-center shadow-premium">
             <LockKeyhole className="mx-auto text-rose-600" size={38} aria-hidden="true" />
-            <p className="mt-4 text-xl font-black text-slate-950">Önerileri görmek için önce fotoğraf analizi yapmalısın.</p>
+            <p className="mt-4 text-xl font-black text-slate-950">Önerileri görmek için önce fotoğraf analizini tamamlamalısın.</p>
             <button
               type="button"
               onClick={() => onNavigate('analysis')}
               className="mt-5 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg"
-              aria-label="AI analiz bölümüne git"
+              aria-label="Demo analiz bölümüne git"
             >
               Analize Git
             </button>
@@ -50,7 +53,9 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
                     <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-black text-violet-700">{item.category}</span>
                     <h3 className="mt-4 text-xl font-black text-slate-950">{item.title}</h3>
                   </div>
-                  <span className="rounded-full bg-rose-100 px-3 py-2 text-sm font-black text-rose-700">%{item.match}</span>
+                  <span className="rounded-full bg-rose-100 px-3 py-2 text-sm font-black text-rose-700" aria-label={`Uyumluluk skoru yüzde ${item.match}`}>
+                    %{item.match} uyum
+                  </span>
                 </div>
                 <p className="mt-3 min-h-20 leading-7 text-slate-700">{item.description}</p>
                 <button
@@ -90,11 +95,11 @@ export function RecommendationsSection({ analysis, onNavigate, onSelectRecommend
               <button
                 type="button"
                 onClick={() => book(selected)}
-                aria-label={`${selected.title} önerisi için randevu al`}
+                aria-label={`${selected.title} önerisi için demo randevu oluştur`}
                 className="inline-flex items-center justify-center gap-2 rounded-full premium-gradient px-6 py-3 font-bold text-white shadow-lg"
               >
                 <CalendarDays size={18} aria-hidden="true" />
-                Randevu Al
+                Demo Randevu Oluştur
               </button>
               <button
                 type="button"
