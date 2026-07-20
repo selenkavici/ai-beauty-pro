@@ -19,20 +19,20 @@ export function Hero({ onNavigate }: HeroProps) {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-4 py-2 text-sm font-bold text-rose-700 shadow-sm">
             <Sparkles size={16} aria-hidden="true" />
-            AI Destekli Kişisel Güzellik Öneri Sistemi
+            Fotoğraf Tabanlı Demo Güzellik Öneri Sistemi
           </span>
           <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
-            AI ile Sana En Uygun Güzellik Stilini Keşfet
+            Sana Uygun Güzellik Stilini Keşfet
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-            Fotoğrafını yükle, yüz hatlarını analiz edelim ve sana özel saç modeli, saç rengi ve
-            güzellik önerileri sunalım.
+            Fotoğrafını yükle, tarayıcı tabanlı demo analiz sonucunu gör ve sana özel saç modeli, saç rengi ve
+            güzellik önerilerini keşfet.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => onNavigate('analysis')}
-              aria-label="AI analiz bölümüne git"
+              aria-label="Demo analiz bölümüne git"
               className="rounded-full premium-gradient px-7 py-4 font-bold text-white shadow-premium transition hover:scale-[1.02]"
             >
               Analize Başla
@@ -53,7 +53,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="rounded-2xl bg-gradient-to-br from-rose-100 via-white to-violet-100 p-5">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold uppercase text-rose-700">Canlı Demo Paneli</p>
+                  <p className="text-sm font-bold uppercase text-rose-700">Demo Paneli</p>
                   <h2 className="mt-1 text-2xl font-black text-slate-950">Beauty AI Studio</h2>
                 </div>
                 <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
@@ -66,7 +66,7 @@ export function Hero({ onNavigate }: HeroProps) {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-white/80 bg-white/78 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                      className="rounded-2xl border border-white/80 bg-white/[0.78] p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                       style={{ animationDelay: `${index * 120}ms` }}
                     >
                       <Icon className="mb-4 text-rose-600" size={24} aria-hidden="true" />
@@ -78,7 +78,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </div>
               <div className="mt-5 rounded-2xl bg-slate-950 p-4 text-white">
                 <div className="mb-3 flex items-center justify-between text-sm">
-                  <span>Demo analiz doğruluk skoru</span>
+                  <span>Örnek uyumluluk skoru</span>
                   <span className="font-bold text-rose-200">%92</span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-white/15">
