@@ -39,7 +39,7 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
             </div>
             <p className="mt-4 max-w-sm leading-7 text-slate-300">
-              Fotoğrafı sunucuya göndermeden MediaPipe landmark analizi yapan frontend final projesi.
+              Fotoğrafı sunucuya göndermeden MediaPipe landmark analizi ve kişiselleştirilmiş güzellik önerileri sunan web uygulaması.
             </p>
           </div>
 
@@ -95,15 +95,12 @@ export function Footer({ onNavigate }: FooterProps) {
             </div>
             <div className="mt-5 space-y-2 text-sm font-semibold text-slate-300">
               <p>Selen Kavici tarafından geliştirilmiştir.</p>
-              <p>Bilgisayar Programcılığı Final Projesi</p>
             </div>
           </div>
         </div>
 
         <div className="mt-9 border-t border-white/10 pt-6">
-          <p className="text-sm font-semibold text-slate-400">
-            © 2026 AI Beauty Pro
-          </p>
+          <p className="text-sm font-semibold text-slate-400">© 2026 AI Beauty Pro</p>
         </div>
       </div>
     </footer>
