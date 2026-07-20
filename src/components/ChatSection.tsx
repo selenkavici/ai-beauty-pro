@@ -1,5 +1,5 @@
 import { Bot, Send, UserRound } from 'lucide-react';
-import { FormEvent, KeyboardEvent, useState } from 'react';
+import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import type { AnalysisResult } from '../types';
 
 type ChatMessage = {
@@ -24,10 +24,10 @@ const includesAny = (message: string, keywords: string[]) => keywords.some((keyw
 
 const analysisPrefix = (analysis: AnalysisResult | null) => {
   if (!analysis) {
-    return 'Daha net öneri verebilmem için önce AI Analiz bölümünden fotoğraf analizi yapmanı öneririm. ';
+    return 'Daha net öneri verebilmem için önce Demo Analiz bölümünden fotoğraf analizi yapmanı öneririm. ';
   }
 
-  return `Analiz sonucunda yüz şeklin ${analysis.faceShape.toLocaleLowerCase('tr-TR')}, cilt alt tonun ${analysis.undertone.toLocaleLowerCase('tr-TR')}, saç yoğunluğun ${analysis.hairDensity.toLocaleLowerCase('tr-TR')} ve stil enerjin ${analysis.styleEnergy.toLocaleLowerCase('tr-TR')} görünüyor. `;
+  return `Demo analiz sonucunda yüz şeklin ${analysis.faceShape.toLocaleLowerCase('tr-TR')}, cilt alt tonun ${analysis.undertone.toLocaleLowerCase('tr-TR')}, saç yoğunluğun ${analysis.hairDensity.toLocaleLowerCase('tr-TR')} ve stil enerjin ${analysis.styleEnergy.toLocaleLowerCase('tr-TR')} görünüyor. `;
 };
 
 const hairColorAdvice = (analysis: AnalysisResult) => {
@@ -119,16 +119,21 @@ const createReply = (message: string, analysis: AnalysisResult | null) => {
   }
 
   if (includesAny(lower, ['randevu', 'kuaför', 'kuafor', 'danışmanlık', 'danismanlik', 'görüşme', 'gorusme', 'paket'])) {
-    return 'Randevu almak için randevu bölümündeki formu doldurabilirsin. İstersen öneri kartlarından birini seçerek randevu alanına otomatik aktarabilir veya Komple AI Güzellik Paketi ile danışmanlık oluşturabilirsin.';
+    return 'Demo randevu akışını denemek için randevu bölümündeki formu doldurabilirsin. Bilgiler yalnızca kendi tarayıcında saklanır ve gerçek bir işletmeye gönderilmez.';
   }
 
-  return `${analysisPrefix(analysis)}Güzellik kararlarında yüz şekli, cilt alt tonu, günlük bakım süresi ve kişisel stil birlikte değerlendirilmelidir. İstersen saç rengi, saç modeli, cilt tonu veya randevu konularından biriyle başlayabiliriz.`;
+  return `${analysisPrefix(analysis)}Güzellik kararlarında yüz şekli, cilt alt tonu, günlük bakım süresi ve kişisel stil birlikte değerlendirilmelidir. Saç rengi, saç modeli, cilt tonu veya demo randevu konularından biriyle başlayabiliriz.`;
 };
 
 export function ChatSection({ analysis }: ChatSectionProps) {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [messages, typing]);
 
   const sendMessage = (text = input) => {
     const clean = text.trim();
@@ -159,15 +164,18 @@ export function ChatSection({ analysis }: ChatSectionProps) {
     'Bana hangi saç rengi yakışır?',
     'Yuvarlak yüze hangi saç modeli olur?',
     'Cilt tonuma göre makyaj öner',
-    'Randevu almak istiyorum',
+    'Randevu akışını denemek istiyorum',
   ];
 
   return (
     <section id="chat" className="section-pad bg-white/70">
       <div className="container-app">
         <div className="mb-8 max-w-3xl">
-          <p className="font-bold uppercase text-rose-700">AI Chat</p>
+          <p className="font-bold uppercase text-rose-700">Demo Chat Asistanı</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-4xl">Güzellik asistanına sor</h2>
+          <p className="mt-3 leading-7 text-slate-700">
+            Yanıtlar gerçek bir yapay zekâ servisi yerine proje kapsamında hazırlanan anahtar kelime tabanlı demo akışından üretilir.
+          </p>
         </div>
         <div className="rounded-2xl border border-rose-100 bg-white p-4 shadow-premium sm:p-6">
           <div className="h-[430px] overflow-y-auto rounded-2xl bg-slate-50 p-4">
@@ -189,7 +197,8 @@ export function ChatSection({ analysis }: ChatSectionProps) {
                   )}
                 </div>
               ))}
-              {typing && <p className="text-sm font-semibold text-violet-700">AI asistan yanıt hazırlıyor...</p>}
+              {typing && <p className="text-sm font-semibold text-violet-700">Demo asistan yanıt hazırlıyor...</p>}
+              <div ref={messagesEndRef} />
             </div>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
