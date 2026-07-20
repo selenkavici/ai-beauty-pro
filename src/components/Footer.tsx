@@ -19,8 +19,8 @@ const features = [
   'Fotoğraf Yükleme',
   'Görsel Tabanlı Demo Analiz',
   'Kişisel Öneriler',
-  'AI Chat Asistanı',
-  'Randevu Sistemi',
+  'Demo Chat Asistanı',
+  'Demo Randevu Akışı',
 ];
 
 export function Footer({ onNavigate }: FooterProps) {
@@ -35,12 +35,11 @@ export function Footer({ onNavigate }: FooterProps) {
               </span>
               <div>
                 <p className="text-xl font-black">AI Beauty Pro</p>
-                <p className="text-sm font-semibold text-rose-200">AI Destekli Kişisel Güzellik Öneri Sistemi</p>
+                <p className="text-sm font-semibold text-rose-200">Fotoğraf Tabanlı Demo Güzellik Öneri Sistemi</p>
               </div>
             </div>
             <p className="mt-4 max-w-sm leading-7 text-slate-300">
-              Fotoğraf analizi, kişiselleştirilmiş öneriler, AI chat ve randevu akışıyla güzellik
-              kararlarını daha bilinçli hale getiren final projesi.
+              Fotoğraf tabanlı demo analiz, kişiselleştirilmiş öneriler, chat ve randevu akışıyla hazırlanmış frontend final projesi.
             </p>
           </div>
 
@@ -85,18 +84,18 @@ export function Footer({ onNavigate }: FooterProps) {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/selenkavici"
+                href="https://github.com/selenkavici/ai-beauty-pro"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2 font-bold text-slate-100 transition hover:bg-white/10"
               >
                 <Github size={18} aria-hidden="true" />
-                GitHub
+                GitHub Projesi
               </a>
             </div>
             <div className="mt-5 space-y-2 text-sm font-semibold text-slate-300">
-              <p>Öğrenci: Selen Kavici</p>
-              <p>Numara: 24010501052</p>
+              <p>Geliştirici: Selen Kavici</p>
+              <p>Bilgisayar Programcılığı Final Projesi</p>
               <p>Ders: Programlamada Yeni Eğilimler</p>
             </div>
           </div>
@@ -104,7 +103,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="mt-9 border-t border-white/10 pt-6">
           <p className="text-sm font-semibold text-slate-400">
-            © 2026 AI Beauty Pro. Final projesi kapsamında geliştirilmiştir.
+            © 2026 AI Beauty Pro. Selen Kavici tarafından geliştirilmiştir.
           </p>
         </div>
       </div>
